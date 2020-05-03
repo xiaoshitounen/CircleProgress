@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         app:total_progress="100"
-        app:progress="80"
+        app:progress="20"
         app:startAngle="270"
         app:endAngle="450"
         app:textColor="#ffffff"

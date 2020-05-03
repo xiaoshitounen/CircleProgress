@@ -180,7 +180,7 @@ public class CircleProgress extends RelativeLayout {
         canvas.drawArc(
                 rectF,
                 startAngle,
-                (endAngle-startAngle)*(progress/total_progress),
+                (endAngle-startAngle)*((total_progress-progress)/total_progress),
                 false,
                 progress_paint
         );
