@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleProgress">
+        <!--当前进度值-->
+        <attr name="progress" format="float"/>
+        <!--总的进度值-->
+        <attr name="total_progress" format="float"/>
+        <!--进度开始的角度-->
+        <attr name="startAngle" format="integer"/>
+        <!--进度结束的角度-->
+        <attr name="endAngle" format="integer"/>
+        <!--文本字体的大小 sp-->
+        <attr name="textSize" format="integer"/>
+        <!--文本字体的颜色-->
+        <attr name="textColor" format="string"/>
+        <!--文本字体绘制的左间距-->
+        <attr name="textLeftPadding" format="integer"/>
+    </declare-styleable>
+</resources>
