@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -142,6 +143,12 @@ public class CircleProgress extends RelativeLayout {
         progress_value_paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         progress_value_paint.setColor(Color.parseColor(textColor));
         progress_value_paint.setTextSize(PxUtil.dpToPx(textSize,getContext()));
+        progress_value_paint.setTypeface(
+                Typeface.createFromAsset(
+                        getContext().getAssets(),
+                        "font/造字工房乐真体.ttf"
+                )
+        );
 
         //加载视图
         View inflate = View.inflate(getContext(), R.layout.circle_progress, this);
