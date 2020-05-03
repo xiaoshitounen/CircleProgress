@@ -15,6 +15,8 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 
+import java.text.DecimalFormat;
+
 public class CircleProgress extends RelativeLayout {
     //进度背景的画笔
     private Paint progress_bg_paint;
@@ -186,7 +188,7 @@ public class CircleProgress extends RelativeLayout {
         );
 
         //4.绘制进度值
-        String text = progress+"秒";
+        String text = new DecimalFormat("##0.0").format(progress)+"秒";
         //4.1计算文本宽度
         float text_width = progress_value_paint.measureText(text);
         //4.2获取字体fontMetrics
