@@ -1,15 +1,15 @@
-# CircleProgress
-时间进度器，包括环形进度和文本值。
+# CircleProgress 时间进度器
 
-# PageController 页面控制器 
+详细内容参考博客:[自定义View-CircleProgress](https://fanandjiu.com/%E8%87%AA%E5%AE%9A%E4%B9%89View-CircleProgress/)
 
 简介：
 
-用于控制页面之间的切换，你可以自定义页面控制点的样式，页面控制点之间动画切换的效果，回调当前页面值。
+用于记录时间的流逝，除了文本显示之外，还有进度显示。
 
 app模块是使用例子，其运行效果：
 
 ![](https://github.com/xiaoshitounen/PageController/blob/master/self_view_page_controller.gif)
+
 
 ### 1. 添加依赖
 
@@ -28,7 +28,7 @@ allprojects {
 Step 2. Add the dependency
 ~~~
 dependencies {
-        implementation 'com.github.xiaoshitounen:PageController:1.0.3'
+    implementation 'com.github.xiaoshitounen:CircleProgress:1.0.4'
 }
 ~~~
 
@@ -43,17 +43,17 @@ dependencies {
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <swu.xl.pagecontroller.PagerController
-        android:id="@+id/page_controller"
-        android:layout_centerInParent="true"
-        android:background="#000000"
+    <swu.xl.circleprogress.CircleProgress
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:numberOfPage="5"
-        app:pageResource="@drawable/page_controller_shape"
-        app:pagePadding="30"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        app:total_progress="100"
+        app:progress="20.0000"
+        app:startAngle="270"
+        app:endAngle="450"
+        app:textColor="#ffffff"
+        app:textSize="22"
+        app:textLeftPadding="10"
         />
 
 </RelativeLayout>
@@ -61,99 +61,32 @@ dependencies {
 
 #### ① 属性
 
-- numberOfPage：设置有多少个页面
-- pagePadding：设置每个页面之间的间距
-- pageResource：设置页面选中以及没有选中的样式
+- progress：当前的进度值，默认是0
+- total_progress：总的进度值，默认是100
+- startAngle：进度开始的位置，默认是0
+- endAngle：进度结束的位置，位置是360
+- textSize：进度文本的字体大小，默认是14sp
+- textColor：进度文本的字体颜色，默认是白色
+- textLeftPadding：绘制文本的左边间距
 
 #### ② 页面样式
 
-页面样式是一个xml文件，你可以自己定义你想要的样式。
+页面样式是一个xml文件，目前不可以定义你想要的样式。
 
 例子：
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
 
-    <!--enable:false的情况-->
-    <item android:state_enabled="false">
-        <shape android:shape="oval">
-            <!--大小-->
-            <size android:width="40dp"
-                android:height="40dp"
-                />
+    <solid android:color="#E48093"
+        />
 
-            <!--颜色-->
-            <solid android:color="#ff0000"/>
-        </shape>
-    </item>
+    <stroke android:width="8dp" android:color="#EAB3BE"
+        />
 
-    <!--enable:true的情况，也是默认的情况-->
-    <item android:state_enabled="true">
-        <shape android:shape="oval">
-            <!--大小-->
-            <size android:width="40dp"
-                android:height="40dp"
-                />
+    <size android:width="120dp"
+        android:height="120dp"/>
 
-            <!--颜色-->
-            <solid android:color="#666666"/>
-        </shape>
-    </item>
-</selector>
+</shape>
 ~~~
-
-#### ③ 页面之间动画切换
-
-在Java代码里面创建动画切换类，并实现动画切换的方法。
-你可以对上一个页面和当前页面控制点进行动画。
-
-~~~
-//初始化
-PagerController pagerController = findViewById(R.id.page_controller);
-
-//设置动画
-pagerController.setPageChangeAnimation(new PagerController.PageChangeAnimation() {
-    @Override
-    public void changeAnimation(View last_dot, View current_dot) {
-        
-    }
-});
-~~~
-
-例子：
-
-~~~
-//初始化
-PagerController pagerController = findViewById(R.id.page_controller);
-
-//设置动画
-pagerController.setPageChangeAnimation(new PagerController.PageChangeAnimation() {
-    @Override
-    public void changeAnimation(View last_dot, View current_dot) {
-        //上一个点不做动画
-
-        //针对当前点的动画
-        ObjectAnimator scale = ObjectAnimator.ofFloat(current_dot, "scaleX", 1.0f, 1.2f, 1.0f);
-        scale.setDuration(500);
-        scale.start();
-    }
-});
-~~~
-
-#### 4.回调当前页面
-
-回调的`currentPage`是页面的索引值而不是序列值。
-
-~~~
-//监听页面切换
-pagerController.setPageChangeListener(new PagerController.PageChangeListener() {
-    @Override
-    public void pageHasChange(int currentPage) {
-        System.out.println("当前页面："+(currentPage+1));
-    }
-});
-~~~
-
-### 3. Java代码中动态添加
-
-需要注意一个地方，注意调用各个set方法的顺序，注意setNumberOfPage的位置。
