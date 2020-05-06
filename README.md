@@ -28,7 +28,7 @@ allprojects {
 Step 2. Add the dependency
 ~~~
 dependencies {
-    implementation 'com.github.xiaoshitounen:CircleProgress:1.0.4'
+    implementation 'com.github.xiaoshitounen:CircleProgress:1.0.5'
 }
 ~~~
 
@@ -54,6 +54,7 @@ dependencies {
         app:textColor="#ffffff"
         app:textSize="22"
         app:textLeftPadding="10"
+        app:textTopPadding="10"
         />
 
 </RelativeLayout>
@@ -68,6 +69,7 @@ dependencies {
 - textSize：进度文本的字体大小，默认是14sp
 - textColor：进度文本的字体颜色，默认是白色
 - textLeftPadding：绘制文本的左边间距
+- textTopPadding：绘制文本的上边间距
 
 #### ② 页面样式
 
