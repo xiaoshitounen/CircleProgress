@@ -17,6 +17,7 @@
         app:textColor="#ffffff"
         app:textSize="22"
         app:textLeftPadding="10"
+        app:textTopPadding="10"
         />
 
 </RelativeLayout>

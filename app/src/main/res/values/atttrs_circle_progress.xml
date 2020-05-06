@@ -15,5 +15,7 @@
         <attr name="textColor" format="string"/>
         <!--文本字体绘制的左间距-->
         <attr name="textLeftPadding" format="integer"/>
+        <!--文本字体绘制的上间距-->
+        <attr name="textTopPadding" format="integer"/>
     </declare-styleable>
 </resources>

@@ -51,11 +51,14 @@ public class CircleProgress extends RelativeLayout {
     //绘制字体的左间距
     private int textLeftPadding = 0;
 
+    //绘制字体的上间距
+    private int textTopPadding = 0;
+
     /**
      * 构造方法 Java代码创建进入
      * @param context
      */
-    public CircleProgress(Context context, int startAngle, int endAngle, int total_progress) {
+    public CircleProgress(Context context,int startAngle,int endAngle,int total_progress) {
         super(context);
 
         //保存值
@@ -112,6 +115,10 @@ public class CircleProgress extends RelativeLayout {
                     R.styleable.CircleProgress_textLeftPadding,
                     0
             );
+            textTopPadding = typedArray.getInteger(
+                    R.styleable.CircleProgress_textTopPadding,
+                    0
+            );
 
             //3.释放资源
             typedArray.recycle();
@@ -127,7 +134,7 @@ public class CircleProgress extends RelativeLayout {
     private void init(){
         //进度的背景画笔
         progress_bg_paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        progress_bg_paint.setColor(Color.parseColor("#9EE5A4"));
+        progress_bg_paint.setColor(Color.rgb(153,223,159));
         progress_bg_paint.setStrokeWidth(PxUtil.dpToPx(10,getContext()));
         progress_bg_paint.setStyle(Paint.Style.STROKE);
         progress_bg_paint.setStrokeJoin(Paint.Join.ROUND);
@@ -135,7 +142,7 @@ public class CircleProgress extends RelativeLayout {
 
         //进度的画笔
         progress_paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        progress_paint.setColor(Color.parseColor("#CCBBBBBB"));
+        progress_paint.setColor(Color.argb(180,34,52,68));
         progress_paint.setStrokeWidth(PxUtil.spToPx(10,getContext()));
         progress_paint.setStyle(Paint.Style.STROKE);
         progress_paint.setStrokeJoin(Paint.Join.ROUND);
@@ -199,7 +206,7 @@ public class CircleProgress extends RelativeLayout {
         canvas.drawText(
                 text,
                 PxUtil.dpToPx(textLeftPadding,getContext())+getPivotX()-text_width/2,
-                getPivotY()+text_height,
+                PxUtil.dpToPx(textTopPadding,getContext())+getPivotY()+text_height,
                 progress_value_paint
         );
     }
@@ -296,3 +303,4 @@ public class CircleProgress extends RelativeLayout {
         this.textLeftPadding = textLeftPadding;
     }
 }
+
