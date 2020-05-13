@@ -34,7 +34,7 @@ dependencies {
 
 ### 2. Xml文件中静态添加使用
 
-~~~
+~~~xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -76,7 +76,7 @@ dependencies {
 页面样式是一个xml文件，目前不可以定义你想要的样式。
 
 例子：
-~~~
+~~~xml
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
