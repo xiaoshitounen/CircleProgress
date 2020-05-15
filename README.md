@@ -8,7 +8,7 @@
 
 app模块是使用例子，其运行效果：
 
-![](https://github.com/xiaoshitounen/PageController/blob/master/self_view_page_controller.gif)
+<img src="https://android-1300729795.cos.ap-chengdu.myqcloud.com/project/Self_View/CircleProgress/circle_progress.jpg" style="zoom:33%;" />
 
 
 ### 1. 添加依赖
