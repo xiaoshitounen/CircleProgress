@@ -1,6 +1,6 @@
 # CircleProgress 时间进度器
 
-详细内容参考博客:[自定义View-CircleProgress](https://fanandjiu.com/%E8%87%AA%E5%AE%9A%E4%B9%89View-CircleProgress/)
+详细内容参考博客:[自定义View-CircleProgress](http://www.fanandjiu.com/article/5e5d5ea9.html)
 
 简介：
 
